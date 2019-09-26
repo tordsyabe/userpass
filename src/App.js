@@ -4,32 +4,16 @@ import styles from "./App.module.css";
 
 function App() {
   const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
   const [count, setCount] = useState(0);
-  const [users, setUsers] = useState([
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" },
-    { username: "ibm01", password: "password01" }
-  ]);
+  const [users, setUsers] = useState([]);
 
   const handleGenerate = e => {
     e.preventDefault();
     const usernames = [];
 
     for (let i = 1; i <= count; i++) {
-      usernames.push({ username: `${user}0${i}`, password: `password0${i}` });
+      usernames.push({ username: `${user}0${i}`, password: `${pass}0${i}` });
     }
     setUsers(usernames);
   };
@@ -55,18 +39,23 @@ function App() {
       <div className={styles.App}>
         <div className={styles.formWrapper}>
           <h1>user and pass</h1>
-          <form
-            className={styles.form}
-            autoComplete="off"
-            onSubmit={e => e.preventDefault()}
-          >
+          <form className={styles.form} autoComplete="off">
             <input
               className={styles.input}
               required
               type="text"
-              name="name"
+              name="user"
               placeholder="Username"
               onChange={e => setUser(e.target.value)}
+            />
+            <br />
+            <input
+              className={styles.input}
+              required
+              type="text"
+              name="pass"
+              placeholder="Password"
+              onChange={e => setPass(e.target.value)}
             />
             <br />
 
@@ -79,12 +68,7 @@ function App() {
               onChange={e => setCount(e.target.value)}
             />
             <br />
-            <button
-              type="button"
-              disabled
-              className={styles.buttonGenerate}
-              onClick={handleGenerate}
-            >
+            <button className={styles.buttonGenerate} onClick={handleGenerate}>
               Generate
             </button>
             <button className={styles.buttonClear} onClick={handleClear}>

@@ -40,8 +40,6 @@
 }
 
 .list {
-  display: flex;
-  align-self: center;
   padding: 9px;
   font-size: 14px;
   /* styles */
