@@ -14,7 +14,7 @@
 
   .lists {
     /* grid-template-rows: 77px 80px 100px 90px 87px 87px 87px 87px; */
-    grid-template-rows: 65px 90px 75px 75px 75px 75px 75px 65px 65px;
+    grid-template-rows: 70px 95px 70px 75px 75px 75px 75px 65px 65px;
     background: rgb(255, 255, 255) !important;
   }
 
