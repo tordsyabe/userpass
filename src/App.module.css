@@ -1,0 +1,205 @@
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+}
+
+@media print {
+  .printArea {
+    display: grid;
+    justify-items: center;
+    margin-top: 10px;
+  }
+
+  .lists {
+    /* grid-template-rows: 77px 80px 100px 90px 87px 87px 87px 87px; */
+    grid-template-rows: 65px 90px 75px 75px 75px 75px 75px 65px 65px;
+    background: rgb(255, 255, 255) !important;
+  }
+
+  .list {
+    background: white;
+    margin: 0 !important;
+    width: auto !important;
+  }
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  list-style: none;
+
+  width: 491px;
+  margin: auto;
+  padding: 0;
+
+  /* sticker */
+  background: rgb(255, 255, 171);
+}
+
+.list {
+  display: flex;
+  align-self: center;
+  padding: 9px;
+  font-size: 14px;
+  /* styles */
+  background: white;
+  border-radius: 10px;
+  margin: 5px;
+  width: 80%;
+}
+.formWrapper h1 {
+  margin: 0;
+  padding-bottom: 20px;
+  color: rgb(190, 190, 190);
+  text-transform: uppercase;
+}
+
+.pageBreak {
+  grid-column: 1 / -1;
+  page-break-after: always;
+}
+
+.formWrapper {
+  width: 60vw;
+  background: #f2f2f2;
+  padding: 30px;
+}
+
+.form {
+  width: 100%;
+}
+
+input[type="text"] {
+  height: 62px;
+  width: 70%;
+  margin: auto;
+  border: none;
+  padding: 0 35px 0 35px;
+  outline: none;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  transition: width 400ms;
+}
+
+input.input {
+  border-radius: 31px;
+  line-height: 1.2;
+  font-size: 18px;
+}
+
+input.input:focus {
+  width: 75%;
+}
+button {
+  font-weight: bold;
+}
+
+.buttonGenerate {
+  background: rgb(106, 188, 226);
+  background: linear-gradient(
+    90deg,
+    rgba(106, 188, 226, 1) 0%,
+    rgba(14, 151, 231, 1) 100%
+  );
+  color: white;
+  border: none;
+  width: 30%;
+  border-radius: 31px;
+  min-width: 150px;
+  font-size: 16px;
+  height: 50px;
+  margin: auto;
+  text-transform: uppercase;
+  padding: 0 35px 0 35px;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: all 400ms;
+}
+.buttonGenerate:hover,
+.buttonGenerate:active,
+.buttonGenerate:focus {
+  background: rgb(106, 188, 226);
+  background: linear-gradient(
+    90deg,
+    rgba(106, 188, 226, 1) 50%,
+    rgba(14, 151, 231, 1) 100%
+  );
+}
+
+.buttonClear {
+  background: rgb(255, 94, 226);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 94, 226, 1) 0%,
+    rgba(255, 33, 215, 1) 100%
+  );
+  color: white;
+  border: none;
+  width: 30%;
+  border-radius: 31px;
+  min-width: 150px;
+  font-size: 16px;
+  height: 50px;
+  margin: auto;
+  text-transform: uppercase;
+  padding: 0 35px 0 35px;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: all 400ms;
+}
+.buttonClear:hover,
+.buttonClear:active,
+.buttonClear:focus {
+  background: rgb(255, 94, 226);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 94, 226, 1) 50%,
+    rgba(255, 33, 215, 1) 100%
+  );
+}
+
+.buttonPrint {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    80deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 45, 215, 1) 100%
+  );
+  color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: none;
+  width: 100%;
+  min-width: 150px;
+  font-size: 16px;
+  height: 62px;
+  margin: auto;
+  text-transform: uppercase;
+  padding: 0 35px 0 35px;
+  outline: none;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.printAreaWrapper {
+  padding: 10px;
+  width: 100%;
+}
+.printArea {
+  text-align: center;
+}
+
+.pTag {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: auto;
+  color: #ccc;
+}
