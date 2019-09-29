@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import ReactToPrint from "react-to-print";
 import styles from "./App.module.css";
+import addContent from "./add-content.svg";
 
 function App() {
   const [user, setUser] = useState("");
@@ -13,7 +14,11 @@ function App() {
     const usernames = [];
 
     for (let i = 1; i <= count; i++) {
-      usernames.push({ username: `${user}0${i}`, password: `${pass}0${i}` });
+      if (i < 10) {
+        usernames.push({ username: `${user}0${i}`, password: `${pass}0${i}` });
+      } else {
+        usernames.push({ username: `${user}${i}`, password: `${pass}${i}` });
+      }
     }
     setUsers(usernames);
   };
@@ -39,7 +44,11 @@ function App() {
       <div className={styles.App}>
         <div className={styles.formWrapper}>
           <h1>user and pass</h1>
-          <form className={styles.form} autoComplete="off">
+          <form
+            className={styles.form}
+            autoComplete="off"
+            onSubmit={handleGenerate}
+          >
             <input
               className={styles.input}
               required
@@ -68,9 +77,11 @@ function App() {
               onChange={e => setCount(e.target.value)}
             />
             <br />
-            <button className={styles.buttonGenerate} onClick={handleGenerate}>
-              Generate
-            </button>
+            <input
+              type="submit"
+              className={styles.buttonGenerate}
+              value="Generate"
+            />
             <button className={styles.buttonClear} onClick={handleClear}>
               Clear
             </button>
@@ -79,7 +90,15 @@ function App() {
         <div className={styles.printAreaWrapper}>
           <div className={styles.printArea} ref={componentRef}>
             {users.length === 0 ? (
-              <p className={styles.pTag}>Make some username and password.</p>
+              <React.Fragment>
+                <img
+                  style={{ width: "50%", margin: "20px" }}
+                  src={addContent}
+                  alt="add"
+                />
+                <p className={styles.pTag}>Make some username and password.</p>
+                <p>Lorem ipsum</p>
+              </React.Fragment>
             ) : (
               <ul className={styles.lists}>{listItems}</ul>
             )}
