@@ -106,6 +106,7 @@ button {
     rgba(106, 188, 226, 1) 0%,
     rgba(14, 151, 231, 1) 100%
   );
+  font-weight: bold;
   color: white;
   border: none;
   width: 30%;

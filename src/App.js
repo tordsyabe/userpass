@@ -7,7 +7,24 @@ function App() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [count, setCount] = useState(0);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([
+    { id: 0, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 1, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 2, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 3, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 4, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 5, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 6, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 7, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 8, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 9, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 10, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 11, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 12, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 13, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 14, username: "ibm01", password: "password01", enableEdit: false },
+    { id: 15, username: "ibm01", password: "password01", enableEdit: false }
+  ]);
 
   const handleGenerate = e => {
     e.preventDefault();
@@ -28,10 +45,56 @@ function App() {
     setUsers([]);
   };
 
+  const handleEditUsername = id => {
+    const userForEdit = [...users];
+    const usernameForEdit = userForEdit.find(obj => obj.id === id);
+
+    usernameForEdit.enableEdit = !usernameForEdit.enableEdit;
+    setUsers(userForEdit);
+  };
+
+  const handleEditChange = (e, id) => {
+    const userForEdit = [...users];
+    const usernameForEdit = userForEdit.find(obj => obj.id === id);
+
+    usernameForEdit.username = e.target.value;
+    setUsers(userForEdit);
+  };
+
+  const handleSaveUsername = id => {
+    const userForEdit = [...users];
+    const usernameForEdit = userForEdit.find(obj => obj.id === id);
+
+    usernameForEdit.enableEdit = false;
+    setUsers(userForEdit);
+  };
+
   const listItems = users.map((a, i) => (
     <React.Fragment>
-      <li key={i} className={styles.list}>
-        user: {a.username}
+      <li key={a.id} className={styles.list}>
+        user:{" "}
+        {a.enableEdit ? (
+          <input
+            name={a.id}
+            type="text"
+            value={a.username}
+            style={{
+              border: "1px solid red",
+              width: "30%",
+              height: "15px",
+              display: "inline-block",
+              margin: 0,
+              padding: 0,
+              textAlign: "center"
+            }}
+            onChange={e => handleEditChange(e, a.id)}
+            onBlur={() => handleSaveUsername(a.id)}
+          />
+        ) : (
+          <span onDoubleClick={() => handleEditUsername(a.id)}>
+            {a.username}
+          </span>
+        )}
         <br />
         pass: {a.password}
       </li>
