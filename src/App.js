@@ -136,7 +136,13 @@ function App() {
           enableEditPassword: false
         });
       } else {
-        usernames.push({ username: `${user}${i}`, password: `${pass}${i}` });
+        usernames.push({
+          id: i,
+          username: `${user}${i}`,
+          password: `${pass}${i}`,
+          enableEditUsername: false,
+          enableEditPassword: false
+        });
       }
     }
     setUsers(usernames);
@@ -283,7 +289,9 @@ function App() {
             <input
               className={styles.input}
               required
-              type="text"
+              type="number"
+              min="1"
+              max="16"
               name="count"
               placeholder="How many?"
               onChange={e => setCount(e.target.value)}
