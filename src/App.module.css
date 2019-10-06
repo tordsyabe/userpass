@@ -207,3 +207,13 @@ button {
   margin: auto;
   color: rgb(190, 190, 190);
 }
+
+@media only screen and (max-width: 600px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .formWrapper {
+    width: 100vw;
+  }
+}

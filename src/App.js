@@ -316,8 +316,11 @@ function App() {
                   src={addContent}
                   alt="add"
                 />
-                <p className={styles.pTag}>Make some username and password.</p>
-                <p>Lorem ipsum</p>
+                <p className={styles.pTag}>Get Started.</p>
+                <p>
+                  Please fill in the fields on the left to start generating
+                  username and password.
+                </p>
               </React.Fragment>
             ) : (
               <ul className={styles.lists}>{listItems}</ul>
