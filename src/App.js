@@ -224,7 +224,10 @@ function App() {
             onBlur={() => handleSaveUsername(a.id)}
           />
         ) : (
-          <span onDoubleClick={() => handleEditUsername(a.id)}>
+          <span
+            style={{ cursor: "pointer" }}
+            onDoubleClick={() => handleEditUsername(a.id)}
+          >
             {a.username}
           </span>
         )}
@@ -248,7 +251,10 @@ function App() {
             onBlur={() => handleSavePassword(a.id)}
           />
         ) : (
-          <span onDoubleClick={() => handleEditPassword(a.id)}>
+          <span
+            style={{ cursor: "pointer" }}
+            onDoubleClick={() => handleEditPassword(a.id)}
+          >
             {a.password}
           </span>
         )}
