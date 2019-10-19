@@ -1,126 +1,15 @@
 import React, { useState, useRef } from "react";
 import ReactToPrint from "react-to-print";
 import styles from "./App.module.css";
+import darkstyles from "./AppDark.module.css";
 import addContent from "./add-content.svg";
 
 function App() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [count, setCount] = useState(0);
-  const [users, setUsers] = useState([
-    // {
-    //   id: 0,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 1,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 2,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 3,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 4,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 5,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 6,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 7,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 8,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 9,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 10,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 11,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 12,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 13,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 14,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // },
-    // {
-    //   id: 15,
-    //   username: "ibm01",
-    //   password: "password01",
-    //   enableEditUsername: false,
-    //   enableEditPassword: false
-    // }
-  ]);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [users, setUsers] = useState([]);
 
   const handleGenerate = e => {
     e.preventDefault();
@@ -204,7 +93,11 @@ function App() {
 
   const listItems = users.map((a, i) => (
     <React.Fragment>
-      <li key={a.id} className={styles.list}>
+      <li
+        key={a.id}
+        className={styles.list}
+        onContextMenu={() => console.log("right clicked")}
+      >
         user:{" "}
         {a.enableEditUsername ? (
           <input
@@ -263,18 +156,21 @@ function App() {
   ));
 
   const componentRef = useRef();
+
   return (
     <React.Fragment>
-      <div className={styles.App}>
-        <div className={styles.formWrapper}>
-          <h1>user and pass</h1>
+      <div className={isDarkMode ? darkstyles.App : styles.App}>
+        <div
+          className={isDarkMode ? darkstyles.formWrapper : styles.formWrapper}
+        >
+          <h1>Label Sticker</h1>
           <form
-            className={styles.form}
+            className={isDarkMode ? darkstyles.form : styles.form}
             autoComplete="off"
             onSubmit={handleGenerate}
           >
             <input
-              className={styles.input}
+              className={isDarkMode ? darkstyles.input : styles.input}
               required
               type="text"
               name="user"
@@ -283,7 +179,7 @@ function App() {
             />
             <br />
             <input
-              className={styles.input}
+              className={isDarkMode ? darkstyles.input : styles.input}
               required
               type="text"
               name="pass"
@@ -293,7 +189,7 @@ function App() {
             <br />
 
             <input
-              className={styles.input}
+              className={isDarkMode ? darkstyles.input : styles.input}
               required
               type="number"
               min="1"
@@ -305,38 +201,61 @@ function App() {
             <br />
             <input
               type="submit"
-              className={styles.buttonGenerate}
+              className={
+                isDarkMode ? darkstyles.buttonGenerate : styles.buttonGenerate
+              }
               value="Generate"
             />
-            <button className={styles.buttonClear} onClick={handleClear}>
+            <button
+              className={
+                isDarkMode ? darkstyles.buttonClear : styles.buttonClear
+              }
+              onClick={handleClear}
+            >
               Clear
             </button>
           </form>
         </div>
-        <div className={styles.printAreaWrapper}>
-          <div className={styles.printArea} ref={componentRef}>
+        <div
+          className={
+            isDarkMode ? darkstyles.printAreaWrapper : styles.printAreaWrapper
+          }
+        >
+          <div
+            className={isDarkMode ? darkstyles.printArea : styles.printArea}
+            ref={componentRef}
+          >
             {users.length === 0 ? (
               <React.Fragment>
                 <img
-                  style={{ width: "50%", margin: "20px" }}
+                  style={{
+                    width: "50%",
+                    margin: "20px"
+                  }}
                   src={addContent}
                   alt="add"
                 />
-                <p className={styles.pTag}>Get Started.</p>
+                <p className={isDarkMode ? darkstyles.pTag : styles.pTag}>
+                  Get Started.
+                </p>
                 <p>
                   Please fill in the fields on the left to start generating
                   username and password.
                 </p>
               </React.Fragment>
             ) : (
-              <ul className={styles.lists}>{listItems}</ul>
+              <ul className={isDarkMode ? darkstyles.lists : styles.lists}>
+                {listItems}
+              </ul>
             )}
           </div>
           <ReactToPrint
             trigger={() => (
               <button
                 disabled={users.length === 0}
-                className={styles.buttonPrint}
+                className={
+                  isDarkMode ? darkstyles.buttonPrint : styles.buttonPrint
+                }
                 style={{
                   background: users.length === 0 ? "#cccccc" : null
                 }}
