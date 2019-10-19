@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: row;
   justify-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 @media print {
@@ -55,8 +57,8 @@
 .formWrapper h1 {
   margin: 0;
   padding-bottom: 20px;
-  color: rgb(190, 190, 190);
-  text-transform: uppercase;
+  color: var(--lightModeFont);
+  text-transform: capitalize;
 }
 
 .pageBreak {
@@ -101,12 +103,7 @@ button {
 }
 
 .buttonGenerate {
-  background: rgb(106, 188, 226);
-  background: linear-gradient(
-    90deg,
-    rgba(106, 188, 226, 1) 0%,
-    rgba(14, 151, 231, 1) 100%
-  );
+  background: var(--lightModeButton);
   font-weight: bold;
   color: white;
   border: none;
@@ -127,27 +124,17 @@ button {
 .buttonGenerate:hover,
 .buttonGenerate:active,
 .buttonGenerate:focus {
-  background: rgb(106, 188, 226);
-  background: linear-gradient(
-    90deg,
-    rgba(106, 188, 226, 1) 50%,
-    rgba(14, 151, 231, 1) 100%
-  );
+  background: var(--darkModeButton);
 }
 
 .buttonClear {
-  background: rgb(255, 94, 226);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 94, 226, 1) 0%,
-    rgba(255, 33, 215, 1) 100%
-  );
+  background: var(--accentLightModeButton);
   color: white;
   border: none;
   width: 30%;
   border-radius: 31px;
   min-width: 150px;
-  font-size: 14px;
+  font-size: 15px;
   height: 50px;
   margin: auto;
   text-transform: uppercase;
@@ -161,21 +148,12 @@ button {
 .buttonClear:hover,
 .buttonClear:active,
 .buttonClear:focus {
-  background: rgb(255, 94, 226);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 94, 226, 1) 50%,
-    rgba(255, 33, 215, 1) 100%
-  );
+  background: var(--accentDarkModeButton);
 }
 
 .buttonPrint {
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    80deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 45, 215, 1) 100%
-  );
+  background: var(--darkModeButton);
+
   color: white;
   position: fixed;
   bottom: 0;
@@ -193,6 +171,12 @@ button {
   cursor: pointer;
 }
 
+.buttonPrint:hover,
+.buttonPrint:active,
+.buttonPrint:focus {
+  background: var(--lightModeButton);
+}
+
 .printAreaWrapper {
   padding: 10px;
   width: 100%;
@@ -205,7 +189,7 @@ button {
   font-weight: bold;
   font-size: 2rem;
   margin: auto;
-  color: rgb(190, 190, 190);
+  color: var(--lightModeFont);
 }
 
 @media only screen and (max-width: 600px) {

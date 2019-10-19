@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: row;
   justify-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 @media print {
@@ -56,7 +58,7 @@
   margin: 0;
   padding-bottom: 20px;
   color: rgb(255, 255, 255);
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .pageBreak {
@@ -103,12 +105,7 @@ button {
 }
 
 .buttonGenerate {
-  background: rgb(0, 73, 107);
-  /* background: linear-gradient(
-    90deg,
-    rgba(106, 188, 226, 1) 0%,
-    rgba(14, 151, 231, 1) 100%
-  ); */
+  background: var(--darkModeButton);
   font-weight: bold;
   color: white;
   border: none;
@@ -130,16 +127,11 @@ button {
 .buttonGenerate:hover,
 .buttonGenerate:active,
 .buttonGenerate:focus {
-  background: rgb(0, 110, 161);
+  background: var(--lightModeButton);
 }
 
 .buttonClear {
-  background: rgb(167, 0, 136);
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 94, 226, 1) 0%,
-    rgba(255, 33, 215, 1) 100%
-  ); */
+  background: var(--accentDarkModeButton);
   color: white;
   border: none;
   width: 30%;
@@ -159,24 +151,18 @@ button {
 .buttonClear:hover,
 .buttonClear:active,
 .buttonClear:focus {
-  background: rgb(207, 0, 169);
+  background: var(--accentLightModeButton);
 }
 
 .buttonPrint {
-  background: rgb(34, 193, 195);
-  background: linear-gradient(
-    80deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 45, 215, 1) 100%
-  );
+  background: #1b1b1b;
   color: white;
-  position: fixed;
   bottom: 0;
   right: 0;
   border: none;
   width: 100%;
   min-width: 150px;
-  font-size: 16px;
+  font-size: 15px;
   height: 62px;
   margin: auto;
   text-transform: uppercase;
