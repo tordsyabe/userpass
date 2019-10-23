@@ -39,6 +39,8 @@ const LabelSticker = props => {
           }}
           onChange={e => handleUsernameChange(e, a.id)}
           onBlur={() => handleSaveUsername(a.id)}
+          maxLength='20'
+          autoFocus
         />
       ) : (
         <span
@@ -66,6 +68,8 @@ const LabelSticker = props => {
           }}
           onChange={e => handlePasswordChange(e, a.id)}
           onBlur={() => handleSavePassword(a.id)}
+          maxLength='20'
+          autoFocus
         />
       ) : (
         <span
