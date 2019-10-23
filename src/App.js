@@ -27,17 +27,11 @@ function App() {
             />
             <label
               htmlFor='toggleDarkMode'
-              style={{
-                cursor: "pointer",
-                color: "grey",
-                fontSize: "13px",
-                border: "1px solid grey",
-                borderRadius: "31px",
-                padding: "10px",
-                height: "15px"
-              }}
+              className={
+                isDarkMode ? darkStyles.toggleUIMode : lightStyles.toggleUIMode
+              }
             >
-              {isDarkMode ? "Light Mode" : "Dark Mode"}
+              {isDarkMode ? "Light" : "Dark"}
             </label>
           </div>
 

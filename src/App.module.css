@@ -7,6 +7,33 @@
   position: relative;
 }
 
+.toggleUIMode {
+  cursor: pointer;
+  color: var(--lightModeFont);
+  font-size: 9px;
+  border: 1px solid var(--lightModeFont);
+  border-radius: 31px;
+  height: 1rem;
+  padding: 2px;
+  padding-right: 4px;
+  position: relative;
+  text-align: end;
+  width: 50px;
+}
+
+.toggleUIMode::after {
+  content: "";
+  background: var(--lightModeFont);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  position: absolute;
+
+  bottom: -7px;
+  left: -4px;
+  transition: all 100ms ease-in-out;
+}
+
 @media print {
   .printArea {
     display: grid;
@@ -121,6 +148,7 @@ button {
   cursor: pointer;
   margin-right: 5px;
   transition: all 400ms;
+  -webkit-appearance: none;
 }
 .buttonGenerate:hover,
 .buttonGenerate:active,
@@ -145,6 +173,7 @@ button {
   cursor: pointer;
   margin-right: 5px;
   transition: all 400ms;
+  -webkit-appearance: none;
 }
 .buttonClear:hover,
 .buttonClear:active,
@@ -170,6 +199,7 @@ button {
   outline: none;
   margin-top: 1rem;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .buttonPrint:hover,
@@ -196,9 +226,22 @@ button {
 @media only screen and (max-width: 600px) {
   .App {
     flex-direction: column;
+    overflow: auto;
   }
 
   .formWrapper {
     width: 100vw;
+    padding: 20px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  .buttonClear,
+  .buttonGenerate {
+    width: 100%;
+  }
+
+  input.input:focus {
+    width: 100%;
   }
 }
