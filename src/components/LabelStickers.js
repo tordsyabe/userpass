@@ -58,11 +58,12 @@ const LabelStickers = props => {
               isDarkMode ? darkStyles.buttonPrint : lightStyles.buttonPrint
             }
             style={{
-              overflow: "hidden",
+              width: "100vw",
               position: "absolute",
-              right: 0,
-              bottom: users.length === 0 ? "-300px" : "0",
-              transition: "all 400ms ease-in-out"
+              visibility: users.length === 0 ? "hidden" : "visible",
+              opacity: users.length === 0 ? "0" : "1",
+              top: "calc(100% - 78px)",
+              transition: "all 300ms ease-in-out"
             }}
           >
             Print
