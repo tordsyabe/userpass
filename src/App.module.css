@@ -28,7 +28,7 @@
   height: 28px;
   border-radius: 50%;
   position: absolute;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   bottom: -7px;
   left: -4px;
   transition: all 100ms ease-in-out;
@@ -49,6 +49,7 @@
     /* grid-template-rows: 77px 80px 100px 90px 87px 87px 87px 87px; */
     grid-template-rows: 70px 95px 70px 75px 75px 75px 75px 65px 65px;
     background: rgb(255, 255, 255) !important;
+    width: 491px;
   }
 
   .list {
@@ -63,7 +64,6 @@
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   list-style: none;
-
   width: 491px;
   margin: auto;
   padding: 0;
@@ -80,7 +80,7 @@
   border-radius: 10px;
   margin: 5px;
   width: 80%;
-  height: 32px;
+  height: 50px;
 }
 .formWrapper h1 {
   margin: 0;
@@ -223,6 +223,13 @@ button {
   color: var(--lightModeFont);
 }
 
+.buttonClear:disabled,
+.buttonGenerate:disabled,
+.buttonPrint:disabled {
+  background: rgb(136, 136, 136);
+  color: white;
+}
+
 @media only screen and (max-width: 600px) {
   .App {
     flex-direction: column;
@@ -243,5 +250,27 @@ button {
 
   input.input:focus {
     width: 100%;
+  }
+
+  .lists {
+    width: 100%;
+  }
+
+  .list {
+    width: 90%;
+  }
+
+  .printAreaWrapper {
+    position: relative;
+  }
+
+  .printArea {
+    position: relative;
+  }
+
+  .buttonPrint {
+    position: relative;
+    top: 100% !important;
+    margin: 0;
   }
 }
