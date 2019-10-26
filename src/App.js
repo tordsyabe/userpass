@@ -21,7 +21,14 @@ function App() {
             <h1>Label Sticker</h1>
             <input
               type='checkbox'
-              onClick={() => setIsDarkMode(!isDarkMode)}
+              onClick={() => {
+                const currentUIFromLS = JSON.parse(
+                  localStorage.getItem("isDarkMode")
+                );
+
+                localStorage.setItem("isDarkMode", !currentUIFromLS);
+                setIsDarkMode(!currentUIFromLS);
+              }}
               style={{ margin: "10px 0", display: "none" }}
               id='toggleDarkMode'
             />
